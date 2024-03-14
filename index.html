@@ -97,14 +97,19 @@
         }
 
         .myButton {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            text-decoration: none;
-            width: 120px;
-            cursor: pointer;
-            border-radius: 10px;
-        }
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-decoration: none;
+    width: 150px; /* Fixed width */
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px 20px; /* Consistent padding */
+    font-size: 1rem; /* Base font size */
+    display: block; /* Block level for better control */
+    margin: 20px auto; /* Centered horizontally */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
 
         .myButton:hover {
             background-color: #3e8e41;
@@ -112,33 +117,26 @@
         }
 
         /* Fix the layout for the chart containers */
-        .container-charts {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            /* This will space out the charts evenly */
-            max-width: 100%;
-            /* Use 100% of the width */
-            margin-left: 50%;
-            /* Center the container */
-            padding: 35px;
-            gap: 30px;
-        }
+        .charts-container {
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    gap: 30px; /* Space between charts */
+    padding: 20px; /* Padding around the container */
+    margin-left: 190px; /* Offset for sidebar - adjust if sidebar width changes */
+}
 
-        .chart-box {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 65%;
-            /* Ensure that charts do not exceed 50% width minus the gap */
-            margin: 15px;
-            margin-left: 25%;
-            /* Half of the gap size to maintain consistency */
-            box-sizing: border-box;
-
-            /* Include padding in the width calculation */
-        }
+.chart-box {
+    width: 80%; /* Adjust the width percentage as needed */
+    margin-bottom: 30px; /* Space below each chart */
+    box-sizing: border-box; /* Border and padding are included in width */
+    padding: 20px; /* Padding inside each box */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: 400px; /* Optional: Adjust if you want all boxes to be the same height */
+}
 
         .chart-box canvas {
             width: 100% !important;
@@ -150,6 +148,10 @@
         }
 
         header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             background-color: #333;
             overflow: hidden;
             width: 50%;
@@ -157,6 +159,7 @@
             text-align: center;
             color: #fff;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
         }
 
         #invitesSent {
@@ -228,12 +231,12 @@
 
 
         .myButton {
-            margin-top: 20px;
-            margin-left: 15px;
-            font-size: 15px;
-            padding: 10px 20px;
+        width: auto; /* Adjust width to auto for more flexibility on tablets */
+        padding: 12px 24px; /* Slightly larger padding on tablets */
+        font-size: 0.875rem; /* Slightly smaller font size on tablets */
+        /* Other properties can stay the same unless you want to tweak further */
+    }
 
-        }
 
         footer {
             display: flex;
@@ -251,15 +254,28 @@
             padding-left: 15px;
         }
 
-        .container-charts {
+        @media (max-width: 1024px) {
+    .charts-container {
+        margin-left: 150px; /* Adjust if sidebar width changes for tablets */
+    }
 
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
+    .chart-box {
+        width: 90%; /* Slightly increase width on smaller devices */
+    }
+}
 
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .charts-container {
+        margin-left: 5; /* No sidebar, full width */
+        padding: 20px 0; /* Adjust padding to remove horizontal padding */
+    }
 
-        }
+    .chart-box {
+        width: 90%; /* Full width for small screens */
+        min-height: auto; /* Height can be automatic on small screens */
+    }
+}
     </style>
 
 </head>
